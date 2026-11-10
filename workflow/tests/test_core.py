@@ -28,7 +28,16 @@ class CoreTests(unittest.TestCase):
             shutil.copy2(ROOT / name, self.root / name)
 
     def run_(self, *args):
-        return subprocess.run(args, cwd=self.root, text=True, capture_output=True)
+        if args and args[0] == "python3":
+            args = (sys.executable, *args[1:])
+        return subprocess.run(
+            args,
+            cwd=self.root,
+            text=True,
+            capture_output=True,
+            encoding="utf-8",
+            errors="replace",
+        )
 
     def git(self, *args):
         p = self.run_("git", *args)

@@ -6,8 +6,11 @@ review instead of granting a hunk-wide exemption for an unrelated deletion.
 """
 import re
 import subprocess
-from pathlib import Path
 import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+import text_io  # noqa: F401  # UTF-8 before reading Java sources
 
 LEX = re.compile(
     r'/\*.*?\*/|//[^\n]*|""".*?"""|"(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\'|[A-Za-z_$][\w$]*|[^\s]',

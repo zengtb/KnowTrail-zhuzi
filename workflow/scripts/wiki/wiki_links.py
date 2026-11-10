@@ -6,6 +6,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+import text_io  # noqa: F401  # UTF-8 before reading wiki files
 from workflow_support import ROOT, config, safe
 from wiki_metadata import metadata
 

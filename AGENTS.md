@@ -16,7 +16,7 @@ python3 workflow/dashboard/build-workflow-page.py --check
 
 `workflow/dashboard/index.html` 由 `python3 workflow/dashboard/build-workflow-page.py` 生成。不要手改这个文件。`--check` 发现页面和当前规则不一致；`finish-audit.sh` 和 `ci-lint.sh` 不跑这项检查。改了规则、脚本或 `workflow/dashboard/page.template.html` 后要重新生成。
 
-环境：Bash、Python 3.9+、Git、ripgrep。只用 Python 标准库，不安装第三方包。本仓库不配置 GitHub Actions。CI 要跑时用内核收尾里的 `ci-lint.sh`，不要另写一套检查。
+环境：Bash、Python 3.9+、Git、ripgrep。只用 Python 标准库，不安装第三方包。仓库文本按 UTF-8 读写，不跟随 Windows ANSI 默认编码。脚本不使用 PATH 里的 `python3` 名字：WindowsApps 下的 `python3` 是商店占位，调用即失败；入口会跳过它，再使用 `py -3` 或其他真实解释器。本仓库不配置 GitHub Actions。CI 要跑时用内核收尾里的 `ci-lint.sh`，不要另写一套检查。
 
 ## 规则分层
 

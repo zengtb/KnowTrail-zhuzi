@@ -3,4 +3,4 @@
 set -euo pipefail
 source "$(dirname "$0")/../lib/_common.sh"
 cd "$ROOT"
-exec python3 "$AGENT_DIR/java/java_checks.py" http "$@"
+exec $PYTHON "$AGENT_DIR/java/java_checks.py" http "$@"

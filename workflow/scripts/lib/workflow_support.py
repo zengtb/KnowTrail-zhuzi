@@ -1,5 +1,6 @@
 """Shared mechanical helpers for the Java shell workflow, not a product runtime."""
 
+import text_io  # noqa: F401  # UTF-8 Path.read_text/write_text before any file read
 import argparse
 import json
 import os

@@ -10,9 +10,13 @@ import html
 import hashlib
 import json
 import os
+import sys
 import tempfile
 from pathlib import Path
 import re
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts/lib"))
+import text_io  # noqa: F401  # UTF-8 before reading rules and templates
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = ROOT / "workflow/dashboard/index.html"

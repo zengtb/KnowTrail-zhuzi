@@ -235,7 +235,7 @@ fi
 
 echo ""
 EXTRA_STATUS=ok
-if ! python3 "$AGENT_DIR/lib/workflow_support.py" checks; then EXTRA_STATUS=fail; fi
+if ! $PYTHON "$AGENT_DIR/lib/workflow_support.py" checks; then EXTRA_STATUS=fail; fi
 
 echo "== AGENT_SUMMARY（填入 change-audit-checklist 模板）=="
 echo "AUDIT_SCOPE=$SCOPE"

@@ -3,6 +3,7 @@
 from pathlib import Path
 import os
 import subprocess
+import sys
 import tempfile
 import unittest
 
@@ -42,11 +43,13 @@ class VersionFreezeTests(unittest.TestCase):
         }
         environ.update(env)
         return subprocess.run(
-            ["python3", str(SCRIPT), base],
+            [sys.executable, str(SCRIPT), base],
             input=self.path + "\n",
             cwd=self.root,
             env=environ,
             text=True,
+            encoding="utf-8",
+            errors="replace",
             capture_output=True,
         )
 

@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 """Local workflow dashboard; serves only the page and its explicit update endpoint."""
-import argparse, importlib.util, json, os, secrets, tempfile
+import argparse, importlib.util, json, os, secrets, sys, tempfile
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlsplit
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts/lib"))
+import text_io  # noqa: F401  # UTF-8 before reading the generated page
 
 DIRECTORY = Path(__file__).resolve().parent
 spec = importlib.util.spec_from_file_location(

@@ -36,7 +36,7 @@ Maven 项目优先使用构建根的 `mvnw`，否则使用 PATH 中的 `mvn`。�
 
 这是配置片段，合并到现有 config。自定义命令在项目根目录执行一次，自行负责模块选择，不追加 Maven 参数；不经过 shell 字符串解析。需要离线时把对应工具的参数写进命令。自定义命令默认自行管理 JDK（例如容器）；若填写 java_version 或 WORKFLOW_JAVA_HOME，仍检查所指定的本地 JDK。
 
-测试入口应通过 build_command/build_args 或 config 的 checks 明确接入；编译成功不等于测试通过。共享产物的构建串行执行。脚本运行环境为 Bash、Python 3.9+、Git、ripgrep；Windows 薄入口依赖 Git Bash，尚未实机验证。
+测试入口应通过 build_command/build_args 或 config 的 checks 明确接入；编译成功不等于测试通过。共享产物的构建串行执行。脚本运行环境为 Bash、Python 3.9+、Git、ripgrep；Windows 薄入口依赖 Git Bash，尚未实机验证。仓库内文本按 UTF-8 读写。检查入口解析真实解释器：跳过 WindowsApps 的 `python3` 商店占位，找不到时再试 `py -3`。直接运行单个 `.py` 时仍要用真实解释器，不要调用该占位程序。
 
 ## 可选 Wiki 复核提醒
 

@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 """Check that changed forward DDL has matching Markdown edits. Never connects to a DB."""
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+import text_io  # noqa: F401  # UTF-8 before reading schema docs
 import argparse
 import os
 from collections import Counter

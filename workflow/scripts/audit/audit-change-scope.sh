@@ -3,4 +3,4 @@
 set -euo pipefail
 source "$(dirname "$0")/../lib/_common.sh"
 cd "$ROOT"
-exec python3 "$AGENT_DIR/lib/workflow_support.py" audit "$@"
+exec $PYTHON "$AGENT_DIR/lib/workflow_support.py" audit "$@"
